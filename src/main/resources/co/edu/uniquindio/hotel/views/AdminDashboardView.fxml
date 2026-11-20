@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="800.0" prefWidth="1240.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hotel.controller.AdminDashboardController">
+   <children>
+      <!-- HEADER ADMIN -->
+      <HBox alignment="CENTER_LEFT" prefHeight="65.0" spacing="20.0" style="-fx-background-color: #0A3222; -fx-padding: 0 25px;">
+         <children>
+            <Label text="🌿 HotelUQ" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #D4AF37;" />
+            <Label text="| Centro de Gestión Administrativa" style="-fx-font-size: 13px; -fx-text-fill: #E2ECE7;" />
+            <Region HBox.hgrow="ALWAYS" />
+            
+            <HBox alignment="CENTER" spacing="15.0">
+               <children>
+                  <Label text="👤 Administrador:" style="-fx-text-fill: #A0B3AA; -fx-font-size: 12px;" />
+                  <Label fx:id="lblNombreAdmin" text="Admin General" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px;" />
+                  <Button onAction="#cerrarSesion" styleClass="btn-danger" text="Cerrar Sesión" style="-fx-font-size: 11px; -fx-padding: 5px 12px;" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+
+      <!-- CUERPO PRINCIPAL -->
+      <HBox VBox.vgrow="ALWAYS">
+         <children>
+            <!-- SIDEBAR ADMIN -->
+            <VBox prefWidth="240.0" spacing="6.0" style="-fx-background-color: #104C34; -fx-padding: 20px 10px;" HBox.hgrow="NEVER">
+               <children>
+                  <Label text="ADMINISTRACIÓN HOTEL" style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #D4AF37; -fx-padding: 0 0 5px 12px;" />
+                  <Button fx:id="btnMenuEstadisticas" maxWidth="Infinity" onAction="#mostrarVistaEstadisticas" styleClass="btn-menu, btn-menu-active" text="📊 Analítica &amp; Estadísticas" />
+                  <Button fx:id="btnMenuHabitaciones" maxWidth="Infinity" onAction="#mostrarVistaHabitaciones" styleClass="btn-menu" text="🏨 Gestión Habitaciones" />
+                  <Button fx:id="btnMenuServicios" maxWidth="Infinity" onAction="#mostrarVistaServicios" styleClass="btn-menu" text="📦 Servicios &amp; Paquetes" />
+                  <Button fx:id="btnMenuPromociones" maxWidth="Infinity" onAction="#mostrarVistaPromociones" styleClass="btn-menu" text="🏷️ Gestión Promociones" />
+                  <Button fx:id="btnMenuRecargas" maxWidth="Infinity" onAction="#mostrarVistaRecargas" styleClass="btn-menu" text="💳 Caja de Recargas" />
+                  <Button fx:id="btnMenuReservasHotel" maxWidth="Infinity" onAction="#mostrarVistaReservasHotel" styleClass="btn-menu" text="📑 Reservas del Hotel" />
+                  <Button fx:id="btnMenuReportes" maxWidth="Infinity" onAction="#mostrarVistaReportes" styleClass="btn-menu" text="🖨️ Centro de Reportes" />
+               </children>
+            </VBox>
+
+            <!-- STACKPANE CENTRAL -->
+            <StackPane HBox.hgrow="ALWAYS" style="-fx-background-color: #F4F6F5; -fx-padding: 20px;">
+               <children>
+                  <!-- PANEL 1: ESTADÍSTICAS Y GRÁFICOS VISUALES -->
+                  <VBox fx:id="panelEstadisticas" spacing="15.0">
+                     <children>
+                        <Label text="Panel de Control y Estadísticas Operativas" styleClass="title-header" />
+                        
+                        <!-- Tarjetas KPI -->
+                        <HBox spacing="15.0">
+                           <children>
+                              <VBox prefWidth="220.0" styleClass="card-kpi" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Total Reservas Registradas" style="-fx-font-size: 11px; -fx-text-fill: #5A6A64;" />
+                                    <Label fx:id="lblKpiTotalReservas" text="0" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #104C34;" />
+                                 </children>
+                              </VBox>
+                              <VBox prefWidth="220.0" styleClass="card-kpi" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Ingresos Brutos Confirmados" style="-fx-font-size: 11px; -fx-text-fill: #5A6A64;" />
+                                    <Label fx:id="lblKpiIngresosTotales" text="\$0 COP" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #104C34;" />
+                                 </children>
+                              </VBox>
+                              <VBox prefWidth="220.0" styleClass="card-kpi" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Total Reembolsos Efectuados" style="-fx-font-size: 11px; -fx-text-fill: #5A6A64;" />
+                                    <Label fx:id="lblKpiReembolsosTotales" text="\$0 COP" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #C92A2A;" />
+                                 </children>
+                              </VBox>
+                              <VBox prefWidth="220.0" styleClass="card-kpi" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Tasa de Ocupación Actual" style="-fx-font-size: 11px; -fx-text-fill: #5A6A64;" />
+                                    <Label fx:id="lblKpiTasaOcupacion" text="0%" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #D4AF37;" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <!-- Gráficos JavaFX -->
+                        <HBox spacing="15.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <!-- BarChart: Ingresos por tipo -->
+                              <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Ingresos por Categoría de Habitación" styleClass="section-title" />
+                                    <BarChart fx:id="chartIngresosPorTipo" legendVisible="false" VBox.vgrow="ALWAYS">
+                                       <xAxis><CategoryAxis label="Tipo de Habitación" /></xAxis>
+                                       <yAxis><NumberAxis label="Ingresos ($ COP)" /></yAxis>
+                                    </BarChart>
+                                 </children>
+                              </VBox>
+
+                              <!-- PieChart: Distribución -->
+                              <VBox prefWidth="380.0" styleClass="card">
+                                 <children>
+                                    <Label text="Distribución de Reservas" styleClass="section-title" />
+                                    <PieChart fx:id="chartDistribucionHabitaciones" VBox.vgrow="ALWAYS" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <!-- LineChart: Tendencia Temporal -->
+                        <VBox prefHeight="220.0" styleClass="card">
+                           <children>
+                              <Label text="Evolución Temporal de Ingresos" styleClass="section-title" />
+                              <LineChart fx:id="chartTendenciaIngresos" legendVisible="false" VBox.vgrow="ALWAYS">
+                                 <xAxis><CategoryAxis label="Fecha" /></xAxis>
+                                 <yAxis><NumberAxis label="Monto ($)" /></yAxis>
+                              </LineChart>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+
+                  <!-- PANEL 2: GESTIÓN DE HABITACIONES -->
+                  <VBox fx:id="panelHabitaciones" spacing="15.0" visible="false">
+                     <children>
+                        <Label text="Gestión de Habitaciones (Patrón Creacional Factory Method)" styleClass="title-header" />
+                        
+                        <!-- Formulario para agregar -->
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="card">
+                           <children>
+                              <VBox spacing="4.0"><Label text="N° Habitación:" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><TextField fx:id="txtHabNumero" prefWidth="90.0" promptText="ej: 103" /></VBox>
+                              <VBox spacing="4.0"><Label text="Piso:" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><TextField fx:id="txtHabPiso" prefWidth="65.0" promptText="ej: 1" /></VBox>
+                              <VBox spacing="4.0"><Label text="Categoría (Factory):" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><ComboBox fx:id="cbHabTipo" prefWidth="150.0" /></VBox>
+                              <VBox spacing="4.0"><Label text="Tarifa / Noche ($):" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><TextField fx:id="txtHabPrecio" prefWidth="120.0" promptText="ej: 140000" /></VBox>
+                              <VBox spacing="4.0" HBox.hgrow="ALWAYS"><Label text="Descripción:" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><TextField fx:id="txtHabDescripcion" promptText="Características principales..." /></VBox>
+                              <Button onAction="#agregarHabitacion" styleClass="btn-primary" text="➕ Crear Habitación" style="-fx-padding: 8px 16px;">
+                                 <HBox.margin><Insets top="16.0" /></HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+
+                        <TableView fx:id="tblHabitacionesAdmin" VBox.vgrow="ALWAYS" styleClass="card">
+                           <columns>
+                              <TableColumn fx:id="colHabNumAdmin" prefWidth="80.0" text="N°" />
+                              <TableColumn fx:id="colHabTipoAdmin" prefWidth="160.0" text="Tipo Habitación" />
+                              <TableColumn fx:id="colHabPisoAdmin" prefWidth="70.0" text="Piso" />
+                              <TableColumn fx:id="colHabPrecioAdmin" prefWidth="130.0" text="Tarifa Base / Noche" />
+                              <TableColumn fx:id="colHabCapAdmin" prefWidth="110.0" text="Capacidad Máx." />
+                              <TableColumn fx:id="colHabEstadoAdmin" prefWidth="100.0" text="Estado" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+
+                  <!-- PANEL 3: GESTIÓN DE SERVICIOS Y PAQUETES (COMPOSITE) -->
+                  <VBox fx:id="panelServicios" spacing="15.0" visible="false">
+                     <children>
+                        <Label text="Servicios Adicionales y Paquetes (Patrón Estructural Composite)" styleClass="title-header" />
+                        
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="card">
+                           <children>
+                              <VBox spacing="4.0"><Label text="Nombre del Servicio:" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><TextField fx:id="txtSrvNombre" prefWidth="180.0" promptText="ej: Lavandería Express" /></VBox>
+                              <VBox spacing="4.0"><Label text="Precio ($ COP):" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><TextField fx:id="txtSrvPrecio" prefWidth="120.0" promptText="ej: 35000" /></VBox>
+                              <VBox spacing="4.0" HBox.hgrow="ALWAYS"><Label text="Descripción:" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><TextField fx:id="txtSrvDesc" promptText="Detalle del servicio..." /></VBox>
+                              <Button onAction="#agregarServicio" styleClass="btn-primary" text="➕ Agregar Servicio" style="-fx-padding: 8px 16px;">
+                                 <HBox.margin><Insets top="16.0" /></HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+
+                        <TableView fx:id="tblServiciosAdmin" VBox.vgrow="ALWAYS" styleClass="card">
+                           <columns>
+                              <TableColumn fx:id="colSrvIdAdmin" prefWidth="90.0" text="ID" />
+                              <TableColumn fx:id="colSrvNombreAdmin" prefWidth="220.0" text="Nombre Servicio / Paquete" />
+                              <TableColumn fx:id="colSrvTipoAdmin" prefWidth="170.0" text="Estructura Composite" />
+                              <TableColumn fx:id="colSrvPrecioAdmin" prefWidth="130.0" text="Precio / Tarifa" />
+                              <TableColumn fx:id="colSrvDescAdmin" prefWidth="350.0" text="Descripción" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+
+                  <!-- PANEL 4: GESTIÓN DE PROMOCIONES -->
+                  <VBox fx:id="panelPromociones" spacing="15.0" visible="false">
+                     <children>
+                        <Label text="Gestión de Promociones y Descuentos" styleClass="title-header" />
+                        
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="card">
+                           <children>
+                              <VBox spacing="4.0"><Label text="Código:" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><TextField fx:id="txtPromoCodigo" prefWidth="110.0" promptText="ej: PROMO-PUENTE" /></VBox>
+                              <VBox spacing="4.0"><Label text="Nombre:" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><TextField fx:id="txtPromoNombre" prefWidth="170.0" promptText="ej: Festivos de Descanso" /></VBox>
+                              <VBox spacing="4.0"><Label text="Dcto (%):" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><TextField fx:id="txtPromoDcto" prefWidth="80.0" promptText="ej: 15" /></VBox>
+                              <VBox spacing="4.0"><Label text="Noches Mín.:" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><TextField fx:id="txtPromoNoches" prefWidth="90.0" promptText="ej: 2" /></VBox>
+                              <Button onAction="#agregarPromocion" styleClass="btn-primary" text="➕ Crear Promoción" style="-fx-padding: 8px 16px;">
+                                 <HBox.margin><Insets top="16.0" /></HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+
+                        <TableView fx:id="tblPromocionesAdmin" VBox.vgrow="ALWAYS" styleClass="card">
+                           <columns>
+                              <TableColumn fx:id="colPromoCodigoAdmin" prefWidth="120.0" text="Código" />
+                              <TableColumn fx:id="colPromoNombreAdmin" prefWidth="240.0" text="Nombre Promoción" />
+                              <TableColumn fx:id="colPromoDctoAdmin" prefWidth="110.0" text="% Descuento" />
+                              <TableColumn fx:id="colPromoNochesAdmin" prefWidth="110.0" text="Noches Mínimas" />
+                              <TableColumn fx:id="colPromoEstadoAdmin" prefWidth="110.0" text="Estado" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+
+                  <!-- PANEL 5: CAJA DE RECARGAS DE TARJETAS VIRTUALES -->
+                  <VBox fx:id="panelRecargas" spacing="15.0" visible="false">
+                     <children>
+                        <Label text="Caja de Recargas de Tarjetas Virtuales" styleClass="title-header" />
+                        <Label text="Cumplimiento Regla de Negocio 3.2: 'Únicamente el administrador podrá realizar la recarga de una tarjeta virtual'." style="-fx-font-size: 12px; -fx-text-fill: #104C34; -fx-font-weight: bold;" />
+                        
+                        <VBox maxWidth="550.0" spacing="14.0" styleClass="card">
+                           <children>
+                              <Label text="Seleccionar Cliente a Recargar:" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+                              <ComboBox fx:id="cbClientesRecarga" maxWidth="Infinity" promptText="Seleccione el cliente..." />
+                              
+                              <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #EBF2EE; -fx-padding: 10px; -fx-background-radius: 6px;">
+                                 <children>
+                                    <Label text="Saldo Actual de la Tarjeta:" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label fx:id="lblSaldoActualClienteRecarga" text="\$0 COP" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #104C34;" />
+                                 </children>
+                              </HBox>
+
+                              <Label text="Monto a Recargar ($ COP):" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+                              <TextField fx:id="txtMontoRecarga" promptText="ej: 500000" />
+
+                              <Label text="Detalle / Justificación Administrativa:" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+                              <TextField fx:id="txtDetalleRecarga" promptText="ej: Pago en efectivo en recepción / Transferencia Bancolombia" />
+
+                              <Button maxWidth="Infinity" onAction="#procesarRecargaTarjeta" styleClass="btn-gold" text="💵 Autorizar y Aplicar Recarga" style="-fx-padding: 10px;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+
+                  <!-- PANEL 6: RESERVAS DEL HOTEL Y CANCELACIÓN ADMINISTRATIVA -->
+                  <VBox fx:id="panelReservasHotel" spacing="15.0" visible="false">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label text="Gestión Integral de Reservas del Hotel" styleClass="title-header" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Button onAction="#cancelarReservaPorHotel" styleClass="btn-danger" text="⚠️ Cancelación por parte del Hotel (Reembolso 100%)" style="-fx-padding: 8px 16px;" />
+                           </children>
+                        </HBox>
+
+                        <Label text="Cumplimiento Regla 3.3: 'Cuando una reserva sea cancelada directamente por el hotel, deberá devolver el 100% del valor pagado a la tarjeta virtual'." style="-fx-font-size: 11px; -fx-text-fill: #104C34; -fx-background-color: #EBF2EE; -fx-padding: 8px; -fx-background-radius: 6px;" />
+
+                        <TableView fx:id="tblReservasHotel" VBox.vgrow="ALWAYS" styleClass="card">
+                           <columns>
+                              <TableColumn fx:id="colResCodHotel" prefWidth="100.0" text="Código" />
+                              <TableColumn fx:id="colResClienteHotel" prefWidth="180.0" text="Cliente" />
+                              <TableColumn fx:id="colResHabHotel" prefWidth="180.0" text="Habitación" />
+                              <TableColumn fx:id="colResFechasHotel" prefWidth="190.0" text="Rango de Fechas" />
+                              <TableColumn fx:id="colResTotalHotel" prefWidth="130.0" text="Total Pagado" />
+                              <TableColumn fx:id="colResEstadoHotel" prefWidth="150.0" text="Estado Actual" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+
+                  <!-- PANEL 7: CENTRO DE REPORTES EXPORTABLES -->
+                  <VBox fx:id="panelReportes" spacing="15.0" visible="false">
+                     <children>
+                        <Label text="Generación y Exportación de Reportes Operativos" styleClass="title-header" />
+                        
+                        <!-- Barra de Configuración de Reporte -->
+                        <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card">
+                           <children>
+                              <VBox spacing="4.0"><Label text="Tipo de Reporte (Template Method):" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><ComboBox fx:id="cbTipoReporte" prefWidth="250.0" /></VBox>
+                              <VBox spacing="4.0"><Label text="Formato (Adapter):" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><ComboBox fx:id="cbFormatoReporte" prefWidth="180.0" /></VBox>
+                              <VBox spacing="4.0"><Label text="Desde:" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><DatePicker fx:id="dpReporteInicio" prefWidth="130.0" /></VBox>
+                              <VBox spacing="4.0"><Label text="Hasta:" style="-fx-font-size: 11px; -fx-font-weight: bold;" /><DatePicker fx:id="dpReporteFin" prefWidth="130.0" /></VBox>
+                              <Button onAction="#previsualizarReporte" styleClass="btn-secondary" text="👁️ Previsualizar" style="-fx-padding: 8px 14px;"><HBox.margin><Insets top="16.0" /></HBox.margin></Button>
+                              <Button onAction="#exportarReporteArchivo" styleClass="btn-primary" text="💾 Exportar Archivo" style="-fx-padding: 8px 16px;"><HBox.margin><Insets top="16.0" /></HBox.margin></Button>
+                           </children>
+                        </HBox>
+
+                        <VBox spacing="8.0" VBox.vgrow="ALWAYS" styleClass="card">
+                           <children>
+                              <Label text="Vista Previa Estructurada del Reporte:" styleClass="section-title" />
+                              <TextArea fx:id="txtPreviewReporte" editable="false" prefRowCount="18" style="-fx-font-family: 'Consolas', 'Courier New'; -fx-font-size: 12px;" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>

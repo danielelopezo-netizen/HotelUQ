@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER" prefHeight="650.0" prefWidth="950.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hotel.controller.LoginController">
+   <children>
+      <!-- Panel Lateral Izquierdo de Bienvenida -->
+      <VBox alignment="CENTER" prefWidth="420.0" style="-fx-background-color: linear-gradient(to bottom, #104C34, #0A2E20);" spacing="20.0" HBox.hgrow="NEVER">
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+         <children>
+            <Label text="🌿 HotelUQ" style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #D4AF37;" />
+            <Label text="Sistema Integral de Gestión Hotelera" style="-fx-font-size: 15px; -fx-text-fill: #E0EAE5; -fx-font-style: italic;" textAlignment="CENTER" wrapText="true" />
+            <Separator prefWidth="180.0" opacity="0.3" />
+            <Label text="Bienvenido a una experiencia de hospitalidad incomparable, confort y tecnología de vanguardia." style="-fx-font-size: 13px; -fx-text-fill: #D1DFD8;" textAlignment="CENTER" wrapText="true" />
+            <Region VBox.vgrow="ALWAYS" />
+            <VBox alignment="CENTER" spacing="8.0" style="-fx-background-color: rgba(255,255,255,0.08); -fx-background-radius: 10px; -fx-padding: 12px;">
+               <children>
+                  <Label text="ACCESOS RÁPIDOS DE PRUEBA" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #D4AF37;" />
+                  <HBox alignment="CENTER" spacing="8.0">
+                     <children>
+                        <Button onAction="#handleDemoAdmin" styleClass="btn-gold" text="Admin" />
+                        <Button onAction="#handleDemoCliente1" styleClass="btn-secondary" text="Carlos" />
+                        <Button onAction="#handleDemoCliente2" styleClass="btn-secondary" text="Laura" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+
+      <!-- Panel Derecho de Autenticación / Registro -->
+      <StackPane alignment="CENTER" HBox.hgrow="ALWAYS" style="-fx-background-color: #F8FAF9;">
+         <padding>
+            <Insets bottom="40.0" left="50.0" right="50.0" top="40.0" />
+         </padding>
+         <children>
+            <!-- Formulario de Inicio de Sesión -->
+            <VBox fx:id="boxLogin" alignment="CENTER_LEFT" maxWidth="400.0" spacing="16.0" styleClass="card">
+               <children>
+                  <Label text="Iniciar Sesión" styleClass="title-header" />
+                  <Label text="Ingrese sus credenciales para acceder a su cuenta" styleClass="subtitle-header" />
+                  
+                  <Label text="Correo Electrónico:" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+                  <TextField fx:id="txtEmailLogin" promptText="ej: carlos@gmail.com o admin@hoteluq.com" />
+                  
+                  <Label text="Contraseña:" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+                  <PasswordField fx:id="txtPasswordLogin" promptText="••••••••" />
+                  
+                  <Label fx:id="lblMensajeLogin" style="-fx-text-fill: #C92A2A; -fx-font-size: 12px;" wrapText="true" />
+                  
+                  <Button maxWidth="Infinity" onAction="#handleLogin" styleClass="btn-primary" text="Acceder a HotelUQ" />
+                  
+                  <Separator />
+                  
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Label text="¿No tienes cuenta?" style="-fx-font-size: 12px;" />
+                        <Hyperlink onAction="#mostrarPanelRegistro" text="Regístrate aquí" style="-fx-font-weight: bold; -fx-text-fill: #104C34;" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+
+            <!-- Formulario de Registro de Nuevo Cliente -->
+            <VBox fx:id="boxRegistro" alignment="CENTER_LEFT" maxWidth="420.0" spacing="12.0" styleClass="card" visible="false">
+               <children>
+                  <Label text="Registro de Cliente" styleClass="title-header" />
+                  <Label text="Crea tu cuenta y recibe tu Tarjeta Virtual HotelUQ al instante" styleClass="subtitle-header" wrapText="true" />
+                  
+                  <Label text="Identificación (Cédula):" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
+                  <TextField fx:id="txtRegIdentificacion" promptText="ej: 1094901004" />
+
+                  <Label text="Nombre Completo:" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
+                  <TextField fx:id="txtRegNombre" promptText="ej: Mariana Gómez" />
+
+                  <Label text="Correo Electrónico:" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
+                  <TextField fx:id="txtRegEmail" promptText="ej: mariana@gmail.com" />
+
+                  <Label text="Teléfono Móvil:" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
+                  <TextField fx:id="txtRegTelefono" promptText="ej: 3105556677" />
+
+                  <Label text="Contraseña:" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
+                  <PasswordField fx:id="txtRegPassword" promptText="Mínimo 4 caracteres" />
+
+                  <Label fx:id="lblMensajeRegistro" style="-fx-text-fill: #C92A2A; -fx-font-size: 11px;" wrapText="true" />
+
+                  <Button maxWidth="Infinity" onAction="#handleRegistro" styleClass="btn-gold" text="Crear Cuenta y Tarjeta Virtual" />
+
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Label text="¿Ya tienes cuenta?" style="-fx-font-size: 12px;" />
+                        <Hyperlink onAction="#mostrarPanelLogin" text="Volver a Iniciar Sesión" style="-fx-font-weight: bold; -fx-text-fill: #104C34;" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</HBox>
