@@ -126,3 +126,4 @@ Para dar cumplimiento a los entregables del curso (commits atómicos y ramas tem
 * `feature/patrones-comportamiento`: Strategy, State, Observer y Template Method.
 * `feature/interfaz-javafx-mvc`: Vistas FXML, estilos CSS y controladores.
 * `feature/pruebas-unitarias-reportes`: Tests automatizados y exportación de reportes TXT/PDF.
+

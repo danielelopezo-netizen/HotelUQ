@@ -11,3 +11,4 @@ public class HabitacionPresidencial extends Habitacion {
         return precioBaseNoche * numeroNoches;
     }
 }
+

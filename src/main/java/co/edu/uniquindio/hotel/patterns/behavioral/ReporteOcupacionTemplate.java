@@ -46,3 +46,4 @@ public class ReporteOcupacionTemplate extends PlantillaReporte {
         datos.agregarTotal("Reservas Canceladas", String.valueOf(canceladas));
     }
 }
+

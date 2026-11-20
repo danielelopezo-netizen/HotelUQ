@@ -295,3 +295,4 @@ public class Reserva implements IDetalleReserva {
         return codigo + " - " + (cliente != null ? cliente.getNombre() : "") + " (" + getFechaEntradaFormateada() + " al " + getFechaSalidaFormateada() + ") [" + getTipoEstado() + "]";
     }
 }
+

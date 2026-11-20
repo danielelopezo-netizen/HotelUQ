@@ -5,3 +5,4 @@ public class HabitacionNoDisponibleException extends HotelException {
         super(message);
     }
 }
+

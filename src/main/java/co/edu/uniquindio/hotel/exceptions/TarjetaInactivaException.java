@@ -5,3 +5,4 @@ public class TarjetaInactivaException extends HotelException {
         super(message);
     }
 }
+

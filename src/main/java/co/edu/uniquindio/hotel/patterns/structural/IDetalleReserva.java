@@ -8,3 +8,4 @@ public interface IDetalleReserva extends Serializable {
     String getDetalleAdicional();
     boolean tieneSeguroCancelacionFlexible();
 }
+

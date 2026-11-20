@@ -5,3 +5,4 @@ public class ReservaException extends HotelException {
         super(message);
     }
 }
+

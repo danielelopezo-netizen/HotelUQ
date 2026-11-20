@@ -50,3 +50,4 @@ public class SesionManager {
         return esAdministrador() ? (Administrador) usuarioAutenticado : null;
     }
 }
+

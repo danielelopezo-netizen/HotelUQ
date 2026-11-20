@@ -68,3 +68,4 @@ public class ReporteTxtAdapter implements IExportadorReporte {
         return "Archivo de Texto (.txt)";
     }
 }
+

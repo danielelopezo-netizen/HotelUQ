@@ -27,3 +27,4 @@ public class EstadoConfirmada implements EstadoReserva {
         reserva.setEstadoActual(new EstadoCompletada());
     }
 }
+

@@ -7,3 +7,4 @@ public interface IExportadorReporte {
     String getExtension();
     String getNombreFormato();
 }
+

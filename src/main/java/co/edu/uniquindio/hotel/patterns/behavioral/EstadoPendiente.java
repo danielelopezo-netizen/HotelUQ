@@ -27,3 +27,4 @@ public class EstadoPendiente implements EstadoReserva {
         throw new ReservaException("No se puede completar una reserva que no ha sido pagada ni confirmada.");
     }
 }
+

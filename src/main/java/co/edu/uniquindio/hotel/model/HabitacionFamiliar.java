@@ -11,3 +11,4 @@ public class HabitacionFamiliar extends Habitacion {
         return precioBaseNoche * numeroNoches;
     }
 }
+

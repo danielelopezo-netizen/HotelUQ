@@ -39,3 +39,4 @@ public abstract class PlantillaReporte {
     protected abstract void procesarFilas(DatosReporte datos, List<Reserva> reservas);
     protected abstract void calcularTotales(DatosReporte datos, List<Reserva> reservas);
 }
+

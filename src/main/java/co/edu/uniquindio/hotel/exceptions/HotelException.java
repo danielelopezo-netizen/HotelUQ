@@ -9,3 +9,4 @@ public class HotelException extends Exception {
         super(message, cause);
     }
 }
+

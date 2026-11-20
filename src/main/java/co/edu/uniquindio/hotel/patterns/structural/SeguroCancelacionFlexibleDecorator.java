@@ -23,3 +23,4 @@ public class SeguroCancelacionFlexibleDecorator extends DecoradorReserva {
         return true;
     }
 }
+

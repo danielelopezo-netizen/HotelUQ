@@ -37,3 +37,4 @@ public class Cliente extends Persona {
         return nombre + " (" + identificacion + ")";
     }
 }
+

@@ -139,3 +139,4 @@ public class Promocion implements Serializable {
         return codigo + " - " + nombre + " (" + porcentajeDescuento + "% dcto)";
     }
 }
+

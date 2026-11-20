@@ -52,3 +52,4 @@ public class ReporteIngresosTemplate extends PlantillaReporte {
         datos.agregarTotal("Ingresos Netos Totales", "$" + String.format("%,.0f", totalIngresos - totalReembolsos));
     }
 }
+

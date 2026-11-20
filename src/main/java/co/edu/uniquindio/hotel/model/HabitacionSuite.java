@@ -11,3 +11,4 @@ public class HabitacionSuite extends Habitacion {
         return precioBaseNoche * numeroNoches;
     }
 }
+

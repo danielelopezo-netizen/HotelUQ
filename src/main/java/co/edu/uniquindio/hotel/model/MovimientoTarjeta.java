@@ -71,3 +71,4 @@ public class MovimientoTarjeta implements Serializable {
         return "[" + getFechaHoraFormateada() + "] " + tipo + ": $" + String.format("%,.0f", monto) + " | Saldo: $" + String.format("%,.0f", saldoPosterior);
     }
 }
+

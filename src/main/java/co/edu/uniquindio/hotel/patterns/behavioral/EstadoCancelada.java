@@ -27,3 +27,4 @@ public class EstadoCancelada implements EstadoReserva {
         throw new ReservaException("No se puede completar una reserva cancelada.");
     }
 }
+

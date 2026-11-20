@@ -101,3 +101,4 @@ public class CuentaPuntos implements Serializable {
         this.clienteIdentificacion = clienteIdentificacion;
     }
 }
+

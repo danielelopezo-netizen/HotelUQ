@@ -9,3 +9,4 @@ public interface ComponenteServicio extends Serializable {
     double getPrecio();
     boolean isPaquete();
 }
+

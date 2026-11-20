@@ -1,0 +1,346 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 4488 >>
+stream
+0.06 0.30 0.20 rg
+30 760 535 50 re
+f
+BT
+/F2 16 Tf
+1.0 1.0 1.0 rg
+180 785 Td
+(HOTELUQ - GESTION HOTELERA) Tj
+ET
+BT
+/F2 13 Tf
+0.1 0.1 0.1 rg
+40 735 Td
+(ESPECIFICACION FORMAL DEL DIAGRAMA DE CLASES UML) Tj
+ET
+BT
+/F1 9 Tf
+0.3 0.3 0.3 rg
+40 718 Td
+(Fecha de Emision: 19/11/2026 20:32:45  |  Periodo: Universidad del Quindio - PGII  |  Registros: 13) Tj
+ET
+0.8 0.8 0.8 RG
+1 w
+40 705 m 565 705 l S
+0.06 0.30 0.20 rg
+40 680 525 18 re f
+BT
+/F2 8 Tf
+1 1 1 rg
+45 685 Td
+(Modulo / Entidad) Tj
+-45 -685 Td
+176 685 Td
+(Tipo) Tj
+-176 -685 Td
+307 685 Td
+(Patron / Principio) Tj
+-307 -685 Td
+438 685 Td
+(Relacion / Multiplicidad) Tj
+-438 -685 Td
+ET
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 665 Td
+(Persona -> Cliente,...) Tj
+-45 -665 Td
+176 665 Td
+(Clase Abstracta) Tj
+-176 -665 Td
+307 665 Td
+(Herencia / SRP) Tj
+-307 -665 Td
+438 665 Td
+(Generalizacion \(1 a N\)) Tj
+-438 -665 Td
+ET
+0.96 0.97 0.96 rg
+40 645 525 14 re f
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 649 Td
+(Cliente *-- Tarjeta...) Tj
+-45 -649 Td
+176 649 Td
+(Composicion Fuerte) Tj
+-176 -649 Td
+307 649 Td
+(Encapsulamiento) Tj
+-307 -649 Td
+438 649 Td
+(1 Cliente a 1 Tarjeta) Tj
+-438 -649 Td
+ET
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 633 Td
+(Cliente *-- CuentaP...) Tj
+-45 -633 Td
+176 633 Td
+(Composicion Fuerte) Tj
+-176 -633 Td
+307 633 Td
+(Algoritmo FIFO) Tj
+-307 -633 Td
+438 633 Td
+(1 Cliente a 1 Cuenta) Tj
+-438 -633 Td
+ET
+0.96 0.97 0.96 rg
+40 613 525 14 re f
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 617 Td
+(Habitacion \(Abstracta\)) Tj
+-45 -617 Td
+176 617 Td
+(Herencia Polimorfica) Tj
+-176 -617 Td
+307 617 Td
+(LSP / OCP) Tj
+-307 -617 Td
+438 617 Td
+(4 Subclases concretas) Tj
+-438 -617 Td
+ET
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 601 Td
+(HabitacionFactory) Tj
+-45 -601 Td
+176 601 Td
+(Factoria Creacional) Tj
+-176 -601 Td
+307 601 Td
+(Factory Method) Tj
+-307 -601 Td
+438 601 Td
+(Crea instancias Hab...) Tj
+-438 -601 Td
+ET
+0.96 0.97 0.96 rg
+40 581 525 14 re f
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 585 Td
+(ComponenteServicio) Tj
+-45 -585 Td
+176 585 Td
+(Interface Estructural) Tj
+-176 -585 Td
+307 585 Td
+(Composite Pattern) Tj
+-307 -585 Td
+438 585 Td
+(Hojas y Compuestos) Tj
+-438 -585 Td
+ET
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 569 Td
+(ReservaBuilder) Tj
+-45 -569 Td
+176 569 Td
+(Constructor Fluido) Tj
+-176 -569 Td
+307 569 Td
+(Builder Pattern) Tj
+-307 -569 Td
+438 569 Td
+(Construye Reserva p...) Tj
+-438 -569 Td
+ET
+0.96 0.97 0.96 rg
+40 549 525 14 re f
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 553 Td
+(DecoradorReserva) Tj
+-45 -553 Td
+176 553 Td
+(Envoltorio Dinamico) Tj
+-176 -553 Td
+307 553 Td
+(Decorator Pattern) Tj
+-307 -553 Td
+438 553 Td
+(Agrega Seguro / Ser...) Tj
+-438 -553 Td
+ET
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 537 Td
+(EstadoReserva) Tj
+-45 -537 Td
+176 537 Td
+(Interface de Estados) Tj
+-176 -537 Td
+307 537 Td
+(State Pattern) Tj
+-307 -537 Td
+438 537 Td
+(Pendiente, Confirma...) Tj
+-438 -537 Td
+ET
+0.96 0.97 0.96 rg
+40 517 525 14 re f
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 521 Td
+(PoliticaCancelacion...) Tj
+-45 -521 Td
+176 521 Td
+(Algoritmos Intercam...) Tj
+-176 -521 Td
+307 521 Td
+(Strategy Pattern) Tj
+-307 -521 Td
+438 521 Td
+(Reembolsos 100%, 80...) Tj
+-438 -521 Td
+ET
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 505 Td
+(IExportadorReporte) Tj
+-45 -505 Td
+176 505 Td
+(Adaptador Formatos) Tj
+-176 -505 Td
+307 505 Td
+(Adapter Pattern) Tj
+-307 -505 Td
+438 505 Td
+(Genera TXT y PDF na...) Tj
+-438 -505 Td
+ET
+0.96 0.97 0.96 rg
+40 485 525 14 re f
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 489 Td
+(PlantillaReporte) Tj
+-45 -489 Td
+176 489 Td
+(Esqueleto de Algoritmo) Tj
+-176 -489 Td
+307 489 Td
+(Template Method) Tj
+-307 -489 Td
+438 489 Td
+(Reportes Ingresos y...) Tj
+-438 -489 Td
+ET
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+45 473 Td
+(HotelFachada) Tj
+-45 -473 Td
+176 473 Td
+(Fachada Unificada) Tj
+-176 -473 Td
+307 473 Td
+(Facade Pattern) Tj
+-307 -473 Td
+438 473 Td
+(Punto unico para vi...) Tj
+-438 -473 Td
+ET
+0.90 0.94 0.91 rg
+40 372 320 88 re f
+BT
+/F2 9 Tf
+0.06 0.30 0.20 rg
+48 442 Td
+(RESUMEN DE TOTALES E INDICADORES:) Tj
+ET
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+50 428 Td
+(Total de Patrones GoF: 10 Patrones Implementados) Tj
+ET
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+50 415 Td
+(Patrones Creacionales: 3 \(Factory, Builder, Singleton\)) Tj
+ET
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+50 402 Td
+(Patrones Estructurales: 4 \(Composite, Decorator, Adapter, Facade\)) Tj
+ET
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+50 389 Td
+(Patrones de Comportamiento: 4 \(Strategy, State, Observer, Template\)) Tj
+ET
+BT
+/F1 8 Tf
+0.1 0.1 0.1 rg
+50 376 Td
+(Archivo Draw.io editable: docs/DIAGRAMA_CLASES_HOTELUQ.drawio) Tj
+ET
+BT
+/F1 7 Tf
+0.5 0.5 0.5 rg
+210 25 Td
+(HotelUQ - Universidad del Quindio - Sistema de Gestion Hotelera) Tj
+ET
+
+endstream
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842]
+/Contents 6 0 R
+/Resources << /Font << /F1 4 0 R /F2 5 0 R >> >>
+>>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000004806 00000 n 
+0000000257 00000 n 
+0000000327 00000 n 
+0000000402 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+4942
+%%EOF

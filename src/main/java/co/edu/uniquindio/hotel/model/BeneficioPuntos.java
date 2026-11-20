@@ -59,3 +59,4 @@ public class BeneficioPuntos implements Serializable {
         return nombre + " (" + puntosRequeridos + " pts) - Equiv: $" + String.format("%,.0f", valorEquivalenteCOP);
     }
 }
+

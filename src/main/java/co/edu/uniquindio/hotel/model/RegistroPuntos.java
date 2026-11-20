@@ -82,3 +82,4 @@ public class RegistroPuntos implements Serializable, Comparable<RegistroPuntos> 
         return puntosDisponibles + "/" + puntosOriginales + " pts (Vence: " + getFechaVencimientoFormateada() + ") - " + concepto;
     }
 }
+

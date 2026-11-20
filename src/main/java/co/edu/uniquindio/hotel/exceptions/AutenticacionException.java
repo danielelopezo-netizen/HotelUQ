@@ -5,3 +5,4 @@ public class AutenticacionException extends HotelException {
         super(message);
     }
 }
+

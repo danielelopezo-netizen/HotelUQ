@@ -16,3 +16,4 @@ public class PoliticaCancelacionHotelStrategy implements PoliticaCancelacionStra
         return "Cancelación Administrativa por parte del Hotel (Reembolso 100% garantizado)";
     }
 }
+

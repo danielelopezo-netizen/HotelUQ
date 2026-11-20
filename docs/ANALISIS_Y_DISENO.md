@@ -123,3 +123,4 @@
 4. *(Bonus)* **Template Method (`PlantillaReporte`):**
    * *Problema:* Todos los reportes operativos del hotel comparten una misma estructura (encabezado institucional, periodo, registros tabulados y cálculo de totales).
    * *Solución:* Clase base abstracta que define el algoritmo esqueleto, dejando los detalles de extracción de datos a subclases concretas.
+

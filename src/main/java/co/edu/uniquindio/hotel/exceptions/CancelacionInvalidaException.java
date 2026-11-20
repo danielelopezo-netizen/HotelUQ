@@ -5,3 +5,4 @@ public class CancelacionInvalidaException extends HotelException {
         super(message);
     }
 }
+

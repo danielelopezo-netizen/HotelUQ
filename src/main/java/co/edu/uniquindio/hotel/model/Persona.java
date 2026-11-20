@@ -75,3 +75,4 @@ public abstract class Persona implements Serializable {
         return Objects.hash(identificacion);
     }
 }
+

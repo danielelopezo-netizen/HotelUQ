@@ -5,3 +5,4 @@ public class PuntosInsuficientesException extends HotelException {
         super(message);
     }
 }
+

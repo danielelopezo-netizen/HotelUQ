@@ -29,3 +29,4 @@ public class PoliticaCancelacionClienteStrategy implements PoliticaCancelacionSt
         return "Política Estándar de Cancelación de Huésped";
     }
 }
+

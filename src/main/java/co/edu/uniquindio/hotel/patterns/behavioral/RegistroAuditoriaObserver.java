@@ -45,3 +45,4 @@ public class RegistroAuditoriaObserver implements IReservaObserver {
         return Collections.unmodifiableList(eventosAuditoria);
     }
 }
+

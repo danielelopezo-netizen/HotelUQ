@@ -5,3 +5,4 @@ public class SaldoInsuficienteException extends HotelException {
         super(message);
     }
 }
+

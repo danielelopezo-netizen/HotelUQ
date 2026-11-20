@@ -9,3 +9,4 @@ public interface IReservaObserver extends Serializable {
     void onReservaCancelada(Reserva reserva, double montoReembolso);
     void onReservaCompletada(Reserva reserva);
 }
+

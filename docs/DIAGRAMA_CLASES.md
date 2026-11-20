@@ -276,3 +276,4 @@ classDiagram
         +exportarReporte(PlantillaReporte p, IExportadorReporte e, File f) void
     }
 ```
+

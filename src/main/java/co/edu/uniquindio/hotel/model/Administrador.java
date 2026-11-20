@@ -25,3 +25,4 @@ public class Administrador extends Persona {
         return nombre + " [" + cargo + "]";
     }
 }
+

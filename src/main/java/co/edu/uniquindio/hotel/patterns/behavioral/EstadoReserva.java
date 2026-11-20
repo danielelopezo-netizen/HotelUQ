@@ -12,3 +12,4 @@ public interface EstadoReserva extends Serializable {
     void cancelar(Reserva reserva, boolean canceladoPorHotel) throws CancelacionInvalidaException;
     void completar(Reserva reserva) throws ReservaException;
 }
+

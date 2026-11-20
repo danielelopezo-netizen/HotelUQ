@@ -108,3 +108,4 @@ public class PaqueteServiciosComposite implements ComponenteServicio {
         return "📦 " + nombre + " (" + porcentajeDescuento + "% off) - $" + String.format("%,.0f", getPrecio());
     }
 }
+

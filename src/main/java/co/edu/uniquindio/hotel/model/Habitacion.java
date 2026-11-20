@@ -97,3 +97,4 @@ public abstract class Habitacion implements Serializable {
         return "Habitación " + numero + " (" + (tipo != null ? tipo.getNombreVisual() : "") + ") - $" + String.format("%,.0f", precioBaseNoche) + "/noche";
     }
 }
+

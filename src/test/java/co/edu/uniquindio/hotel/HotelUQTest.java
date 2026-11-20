@@ -215,3 +215,4 @@ public class HotelUQTest {
         assertTrue(pdfFile.exists() && pdfFile.length() > 0);
     }
 }
+
