@@ -38,4 +38,3 @@ public class GeneradorDiagramaPdf {
         System.out.println("PDF del diagrama generado con exito en: " + destino.getAbsolutePath());
     }
 }
-

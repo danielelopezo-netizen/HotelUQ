@@ -5,4 +5,3 @@ public class AppLauncher {
         MainApp.main(args);
     }
 }
-
