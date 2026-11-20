@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="760.0" prefWidth="1180.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hotel.controller.ClienteDashboardController">
+   <children>
+      <!-- BARRA SUPERIOR (HEADER) -->
+      <HBox alignment="CENTER_LEFT" prefHeight="65.0" spacing="20.0" style="-fx-background-color: #104C34; -fx-padding: 0 25px;">
+         <children>
+            <Label text="🌿 HotelUQ" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #D4AF37;" />
+            <Label text="| Portal de Huéspedes" style="-fx-font-size: 13px; -fx-text-fill: #E2ECE7;" />
+            <Region HBox.hgrow="ALWAYS" />
+            
+            <HBox alignment="CENTER" spacing="15.0">
+               <children>
+                  <HBox alignment="CENTER" spacing="6.0" style="-fx-background-color: rgba(255,255,255,0.12); -fx-background-radius: 20px; -fx-padding: 5px 14px;">
+                     <children>
+                        <Label text="💳 Tarjeta:" style="-fx-text-fill: #D4AF37; -fx-font-weight: bold; -fx-font-size: 11px;" />
+                        <Label fx:id="lblSaldoHeader" text="\$0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 12px;" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" spacing="6.0" style="-fx-background-color: rgba(255,255,255,0.12); -fx-background-radius: 20px; -fx-padding: 5px 14px;">
+                     <children>
+                        <Label text="⭐ Puntos:" style="-fx-text-fill: #D4AF37; -fx-font-weight: bold; -fx-font-size: 11px;" />
+                        <Label fx:id="lblPuntosHeader" text="0 pts" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 12px;" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblNombreCliente" text="Huésped" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px;" />
+                  <Button onAction="#cerrarSesion" styleClass="btn-danger" text="Salir" style="-fx-font-size: 11px; -fx-padding: 5px 12px;" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+
+      <!-- CUERPO PRINCIPAL CON MENÚ LATERAL Y CONTENIDO -->
+      <HBox VBox.vgrow="ALWAYS">
+         <children>
+            <!-- MENÚ LATERAL IZQUIERDO -->
+            <VBox prefWidth="230.0" spacing="6.0" style="-fx-background-color: #0A3222; -fx-padding: 20px 10px;" HBox.hgrow="NEVER">
+               <children>
+                  <Label text="MENÚ PRINCIPAL" style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #A0B3AA; -fx-padding: 0 0 5px 12px;" />
+                  <Button fx:id="btnMenuReservar" maxWidth="Infinity" onAction="#mostrarVistaReservar" styleClass="btn-menu, btn-menu-active" text="🛎️ Explorar &amp; Reservar" />
+                  <Button fx:id="btnMenuTarjeta" maxWidth="Infinity" onAction="#mostrarVistaTarjeta" styleClass="btn-menu" text="💳 Mi Tarjeta Virtual" />
+                  <Button fx:id="btnMenuPuntos" maxWidth="Infinity" onAction="#mostrarVistaPuntos" styleClass="btn-menu" text="⭐ Mis Puntos HotelUQ" />
+                  <Button fx:id="btnMenuReservas" maxWidth="Infinity" onAction="#mostrarVistaMisReservas" styleClass="btn-menu" text="📋 Mis Reservas" />
+                  <Region VBox.vgrow="ALWAYS" />
+                  <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: rgba(255,255,255,0.06); -fx-background-radius: 8px; -fx-padding: 10px;">
+                     <children>
+                        <Label text="Atención al Huésped" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #D4AF37;" />
+                        <Label text="Recepción 24/7" style="-fx-font-size: 10px; -fx-text-fill: #C0CEC7;" />
+                        <Label text="PBX: (606) 745 0000" style="-fx-font-size: 10px; -fx-text-fill: #C0CEC7;" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+
+            <!-- CONTENEDOR CENTRAL DINÁMICO -->
+            <StackPane HBox.hgrow="ALWAYS" style="-fx-background-color: #F4F6F5; -fx-padding: 20px;">
+               <children>
+                  <!-- PANEL 1: EXPLORAR Y RESERVAR -->
+                  <VBox fx:id="panelReservar" spacing="15.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label text="Consulta y Reserva de Habitaciones" styleClass="title-header" />
+                              <Region HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+
+                        <!-- Filtros de Búsqueda -->
+                        <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card">
+                           <children>
+                              <VBox spacing="4.0">
+                                 <children>
+                                    <Label text="Fecha de Entrada:" style="-fx-font-size: 11px; -fx-font-weight: bold;" />
+                                    <DatePicker fx:id="dpEntrada" prefWidth="135.0" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="4.0">
+                                 <children>
+                                    <Label text="Fecha de Salida:" style="-fx-font-size: 11px; -fx-font-weight: bold;" />
+                                    <DatePicker fx:id="dpSalida" prefWidth="135.0" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="4.0">
+                                 <children>
+                                    <Label text="Categoría:" style="-fx-font-size: 11px; -fx-font-weight: bold;" />
+                                    <ComboBox fx:id="cbTipoHabitacion" prefWidth="160.0" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="4.0">
+                                 <children>
+                                    <Label text="Huéspedes:" style="-fx-font-size: 11px; -fx-font-weight: bold;" />
+                                    <Spinner fx:id="spHuespedes" prefWidth="90.0" />
+                                 </children>
+                              </VBox>
+                              <Button onAction="#buscarHabitacionesDisponibles" styleClass="btn-primary" text="🔍 Buscar Habitaciones" style="-fx-padding: 8px 16px;">
+                                 <HBox.margin>
+                                    <Insets top="16.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+
+                        <!-- Split de Habitaciones y Configurador -->
+                        <HBox spacing="15.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <!-- Tabla de Habitaciones Disponibles -->
+                              <VBox spacing="8.0" HBox.hgrow="ALWAYS" styleClass="card">
+                                 <children>
+                                    <Label text="Habitaciones Disponibles para el Periodo" styleClass="section-title" />
+                                    <TableView fx:id="tblHabitacionesDisponibles" VBox.vgrow="ALWAYS">
+                                       <columns>
+                                          <TableColumn fx:id="colHabNumero" prefWidth="70.0" text="N°" />
+                                          <TableColumn fx:id="colHabTipo" prefWidth="120.0" text="Categoría" />
+                                          <TableColumn fx:id="colHabPiso" prefWidth="75.0" text="Piso" />
+                                          <TableColumn fx:id="colHabCapacidad" prefWidth="90.0" text="Capacidad" />
+                                          <TableColumn fx:id="colHabPrecio" prefWidth="105.0" text="Tarifa / Noche" />
+                                          <TableColumn fx:id="colHabDescripcion" prefWidth="200.0" text="Amenidades" />
+                                       </columns>
+                                    </TableView>
+                                    <Label text="👉 Seleccione una habitación de la tabla para personalizar y completar su reserva." style="-fx-font-size: 11px; -fx-text-fill: #5A6A64; -fx-font-style: italic;" />
+                                 </children>
+                              </VBox>
+
+                              <!-- Panel Configurador de Reserva -->
+                              <VBox fx:id="boxConfigurador" prefWidth="380.0" spacing="10.0" styleClass="card" visible="false">
+                                 <children>
+                                    <Label text="Configurador de Reserva" styleClass="section-title" />
+                                    <Label fx:id="lblHabitacionSeleccionada" text="Habitación" style="-fx-font-weight: bold; -fx-text-fill: #104C34; -fx-font-size: 12px;" wrapText="true" />
+                                    <Separator />
+                                    
+                                    <Label text="Servicios Adicionales y Paquetes (Composite):" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
+                                    <ListView fx:id="lvServicios" prefHeight="110.0" />
+                                    
+                                    <Label text="Promociones Aplicables:" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
+                                    <ComboBox fx:id="cbPromociones" maxWidth="Infinity" promptText="Seleccionar promoción si cumple..." />
+                                    
+                                    <VBox spacing="6.0" style="-fx-background-color: #F8FAF9; -fx-padding: 8px; -fx-background-radius: 6px;">
+                                       <children>
+                                          <CheckBox fx:id="chkUsarPuntos" text="⭐ Canjear Puntos HotelUQ por descuento" style="-fx-font-size: 11px; -fx-font-weight: bold;" />
+                                          <CheckBox fx:id="chkSeguroFlexible" text="🛡️ Seguro Cancelación 100% Flexible (+$35.000)" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #104C34;" />
+                                       </children>
+                                    </VBox>
+
+                                    <!-- Desglose de Precios -->
+                                    <VBox spacing="4.0" style="-fx-background-color: #EBF2EE; -fx-padding: 10px; -fx-background-radius: 8px;">
+                                       <children>
+                                          <HBox><Label text="Noches calculadas:" style="-fx-font-size: 11px;" /><Region HBox.hgrow="ALWAYS" /><Label fx:id="lblResumenNoches" text="0" style="-fx-font-weight: bold; -fx-font-size: 11px;" /></HBox>
+                                          <HBox><Label text="Subtotal Hospedaje:" style="-fx-font-size: 11px;" /><Region HBox.hgrow="ALWAYS" /><Label fx:id="lblResumenHospedaje" text="\$0" style="-fx-font-weight: bold; -fx-font-size: 11px;" /></HBox>
+                                          <HBox><Label text="Dcto Larga Estadía (&gt;7n):" style="-fx-font-size: 11px; -fx-text-fill: #166344;" /><Region HBox.hgrow="ALWAYS" /><Label fx:id="lblResumenLargaEstadia" text="\$0" style="-fx-font-size: 11px; -fx-text-fill: #166344;" /></HBox>
+                                          <HBox><Label text="Dcto Promoción:" style="-fx-font-size: 11px; -fx-text-fill: #166344;" /><Region HBox.hgrow="ALWAYS" /><Label fx:id="lblResumenPromocion" text="\$0" style="-fx-font-size: 11px; -fx-text-fill: #166344;" /></HBox>
+                                          <HBox><Label text="Servicios / Paquetes:" style="-fx-font-size: 11px;" /><Region HBox.hgrow="ALWAYS" /><Label fx:id="lblResumenServicios" text="\$0" style="-fx-font-size: 11px;" /></HBox>
+                                          <HBox><Label text="Dcto Puntos Redimidos:" style="-fx-font-size: 11px; -fx-text-fill: #166344;" /><Region HBox.hgrow="ALWAYS" /><Label fx:id="lblResumenPuntosDcto" text="\$0" style="-fx-font-size: 11px; -fx-text-fill: #166344;" /></HBox>
+                                          <HBox><Label text="Seguro Flexible:" style="-fx-font-size: 11px;" /><Region HBox.hgrow="ALWAYS" /><Label fx:id="lblResumenSeguro" text="\$0" style="-fx-font-size: 11px;" /></HBox>
+                                          <Separator />
+                                          <HBox alignment="CENTER_LEFT">
+                                             <children>
+                                                <Label text="TOTAL A PAGAR:" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #104C34;" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="lblResumenTotalNeto" text="\$0" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #104C34;" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+
+                                    <Button maxWidth="Infinity" onAction="#confirmarYRealizarReserva" styleClass="btn-gold" text="💳 Confirmar y Pagar con Tarjeta Virtual" style="-fx-padding: 10px;" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+
+                  <!-- PANEL 2: TARJETA VIRTUAL -->
+                  <VBox fx:id="panelTarjeta" spacing="15.0" visible="false">
+                     <children>
+                        <Label text="Mi Tarjeta Virtual HotelUQ" styleClass="title-header" />
+                        
+                        <HBox spacing="20.0">
+                           <children>
+                              <!-- Simulación Visual de Tarjeta de Lujo -->
+                              <VBox prefWidth="360.0" prefHeight="200.0" spacing="12.0" styleClass="tarjeta-virtual-box">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <Label text="HotelUQ Virtual Card" style="-fx-text-fill: #D4AF37; -fx-font-weight: bold; -fx-font-size: 14px;" />
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Label text="ACTIVA" style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-padding: 2px 8px; -fx-background-radius: 10px; -fx-font-size: 10px; -fx-font-weight: bold;" />
+                                       </children>
+                                    </HBox>
+                                    <Region VBox.vgrow="ALWAYS" />
+                                    <Label text="SALDO DISPONIBLE" style="-fx-text-fill: #A0B2C6; -fx-font-size: 10px;" />
+                                    <Label fx:id="lblCardSaldoGrande" text="\$0 COP" style="-fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold;" />
+                                    <Region VBox.vgrow="ALWAYS" />
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label text="NÚMERO DE TARJETA" style="-fx-text-fill: #A0B2C6; -fx-font-size: 9px;" />
+                                                <Label fx:id="lblCardNumero" text="TV-00000" style="-fx-text-fill: white; -fx-font-family: 'Courier New'; -fx-font-weight: bold; -fx-font-size: 13px;" />
+                                             </children>
+                                          </VBox>
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <VBox alignment="CENTER_RIGHT">
+                                             <children>
+                                                <Label text="TITULAR" style="-fx-text-fill: #A0B2C6; -fx-font-size: 9px;" />
+                                                <Label fx:id="lblCardTitular" text="NOMBRE CLIENTE" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 11px;" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+
+                              <!-- Panel de Solicitud de Recarga -->
+                              <VBox prefWidth="380.0" spacing="12.0" styleClass="card" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Gestión de Saldo y Fondos" styleClass="section-title" />
+                                    <Label text="Las recargas de saldo son procesadas y autorizadas formalmente por la Administración de HotelUQ de acuerdo con las reglas de negocio (RN 3.2)." style="-fx-font-size: 12px; -fx-text-fill: #5A6A64;" wrapText="true" />
+                                    <Region VBox.vgrow="ALWAYS" />
+                                    <Button maxWidth="Infinity" onAction="#solicitarRecargaTarjeta" styleClass="btn-primary" text="➕ Solicitar Recarga de Saldo" style="-fx-padding: 10px;" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <!-- Historial de Movimientos -->
+                        <VBox spacing="8.0" VBox.vgrow="ALWAYS" styleClass="card">
+                           <children>
+                              <Label text="Historial de Movimientos y Pagos" styleClass="section-title" />
+                              <TableView fx:id="tblMovimientos" VBox.vgrow="ALWAYS">
+                                 <columns>
+                                    <TableColumn fx:id="colMovFecha" prefWidth="130.0" text="Fecha / Hora" />
+                                    <TableColumn fx:id="colMovTipo" prefWidth="150.0" text="Tipo de Transacción" />
+                                    <TableColumn fx:id="colMovConcepto" prefWidth="320.0" text="Concepto Detallado" />
+                                    <TableColumn fx:id="colMovMonto" prefWidth="130.0" text="Monto" />
+                                    <TableColumn fx:id="colMovSaldo" prefWidth="130.0" text="Saldo Resultante" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+
+                  <!-- PANEL 3: PUNTOS HOTELUQ -->
+                  <VBox fx:id="panelPuntos" spacing="15.0" visible="false">
+                     <children>
+                        <Label text="Programa de Fidelización HotelUQ" styleClass="title-header" />
+                        
+                        <!-- Tarjetas KPI de Puntos -->
+                        <HBox spacing="15.0">
+                           <children>
+                              <VBox prefWidth="240.0" styleClass="card-kpi" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Puntos Válidos Disponibles" style="-fx-font-size: 11px; -fx-text-fill: #5A6A64;" />
+                                    <Label fx:id="lblPuntosVigentes" text="0 pts" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #104C34;" />
+                                 </children>
+                              </VBox>
+                              <VBox prefWidth="240.0" styleClass="card-kpi" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Equivalencia en Dinero (COP)" style="-fx-font-size: 11px; -fx-text-fill: #5A6A64;" />
+                                    <Label fx:id="lblPuntosEquivalenteCOP" text="\$0 COP" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #D4AF37;" />
+                                 </children>
+                              </VBox>
+                              <VBox prefWidth="240.0" styleClass="card-kpi" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Puntos Caducados (&gt; 1 año)" style="-fx-font-size: 11px; -fx-text-fill: #5A6A64;" />
+                                    <Label fx:id="lblPuntosVencidos" text="0 pts" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #C92A2A;" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <Label text="ℹ️ Regla HotelUQ: Cada $100.000 COP pagados otorgan 100 puntos. Los puntos vencen en 1 año. Al redimir, se consumen en orden FIFO los que están más próximos a caducar." style="-fx-font-size: 11px; -fx-text-fill: #104C34; -fx-background-color: #EBF2EE; -fx-padding: 8px 12px; -fx-background-radius: 6px;" />
+
+                        <HBox spacing="15.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <!-- Tabla de Lotes -->
+                              <VBox spacing="8.0" HBox.hgrow="ALWAYS" styleClass="card">
+                                 <children>
+                                    <Label text="Lotes de Puntos y Vencimientos" styleClass="section-title" />
+                                    <TableView fx:id="tblLotesPuntos" VBox.vgrow="ALWAYS">
+                                       <columns>
+                                          <TableColumn fx:id="colLotePuntos" prefWidth="90.0" text="Disponibles" />
+                                          <TableColumn fx:id="colLoteObtencion" prefWidth="100.0" text="Obtención" />
+                                          <TableColumn fx:id="colLoteVencimiento" prefWidth="105.0" text="Vencimiento" />
+                                          <TableColumn fx:id="colLoteConcepto" prefWidth="210.0" text="Concepto" />
+                                          <TableColumn fx:id="colLoteEstado" prefWidth="95.0" text="Estado" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+
+                              <!-- Catálogo de Beneficios -->
+                              <VBox prefWidth="350.0" spacing="8.0" styleClass="card">
+                                 <children>
+                                    <Label text="Catálogo de Beneficios Redimibles" styleClass="section-title" />
+                                    <ListView fx:id="lvBeneficiosPuntos" VBox.vgrow="ALWAYS" />
+                                    <Label text="* Puede aplicar sus puntos directamente al confirmar su reserva en la pestaña de reservas." style="-fx-font-size: 10px; -fx-text-fill: #5A6A64; -fx-font-style: italic;" wrapText="true" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+
+                  <!-- PANEL 4: MIS RESERVAS -->
+                  <VBox fx:id="panelReservas" spacing="15.0" visible="false">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label text="Historial de Mis Reservas" styleClass="title-header" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Button onAction="#cancelarReservaSeleccionada" styleClass="btn-danger" text="❌ Cancelar Reserva Seleccionada" style="-fx-padding: 8px 16px;" />
+                           </children>
+                        </HBox>
+
+                        <VBox spacing="8.0" VBox.vgrow="ALWAYS" styleClass="card">
+                           <children>
+                              <TableView fx:id="tblMisReservas" VBox.vgrow="ALWAYS">
+                                 <columns>
+                                    <TableColumn fx:id="colResCodigo" prefWidth="90.0" text="Código" />
+                                    <TableColumn fx:id="colResHabitacion" prefWidth="190.0" text="Habitación" />
+                                    <TableColumn fx:id="colResEntrada" prefWidth="95.0" text="Entrada" />
+                                    <TableColumn fx:id="colResSalida" prefWidth="95.0" text="Salida" />
+                                    <TableColumn fx:id="colResHuespedes" prefWidth="85.0" text="Huéspedes" />
+                                    <TableColumn fx:id="colResTotal" prefWidth="120.0" text="Total Pagado" />
+                                    <TableColumn fx:id="colResEstado" prefWidth="140.0" text="Estado" />
+                                 </columns>
+                              </TableView>
+
+                              <Label fx:id="lblDetalleReservaServicios" text="Seleccione una reserva para ver sus detalles." style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #104C34; -fx-background-color: #F8FAF9; -fx-padding: 8px; -fx-background-radius: 6px;" wrapText="true" />
+                           </children>
+                        </VBox>
+
+                        <!-- Explicación de Políticas de Cancelación -->
+                        <HBox spacing="10.0" style="-fx-background-color: #EBF2EE; -fx-padding: 10px; -fx-background-radius: 8px;">
+                           <children>
+                              <Label text="⚖️ Política de Cancelación (Regla 3.3):" style="-fx-font-weight: bold; -fx-font-size: 11px; -fx-text-fill: #104C34;" />
+                              <Label text="&gt; 72 horas antes = 100% de devolución  |  Entre 24 y 72 horas = 80% de devolución  |  &lt; 24 horas = 0% devolución. Los reembolsos retornan automáticamente a su tarjeta virtual." style="-fx-font-size: 11px; -fx-text-fill: #104C34;" wrapText="true" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>
